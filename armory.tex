@@ -24,7 +24,7 @@
 \title{Armory -- A Library for Adversarial ML Evaluation
     \thanks{Armory is based upon work supported by the Defense Advanced Research
         Projects Agency (DARPA) under Contract No. HR001120C0114 and
-        US Army (JATIC) Contact No. W519TC2392035}
+        US Army (JATIC) Contract No. W519TC2392035}
 }
 \author{
     Matt Wartell
@@ -64,7 +64,7 @@ defenses. The collective experience has been encoded into Armory and ART.
 
 As a mechanism to assist GARD evaluators, the Armory application was created by TwoSix
 Technologies in close collaboration with IBM and MITRE. It provided a number of features
-that were helpful to the GARD research programme: A curated collection of models, and
+that were helpful to the GARD research program: A curated collection of models, and
 datasets well known to the ML community and used because they were well characterized.
 Using IBM's Adversarial Robustness Toolbox (ART) Armory first measures the model
 performance on the unperturbed inputs and then with adversarial perturbations computed
@@ -72,7 +72,7 @@ and applied. The Armory application used Docker and conda to ease environment
 replication between performers and evaluators. Armory was released as open-source via
 Github and the Python Package Index (PyPI) since its inception.
 
-A key capability of the Armory is allowing for determinate experiment replication so
+A key capability of Armory is allowing for determinate experiment replication so
 that the performers can fully specify their defense and its exercise in code such that
 evaluators are guaranteed to get the same results (there are some defenses that count on
 stochastic effects to evade attacks, but variability is expected in those results).
@@ -80,15 +80,15 @@ stochastic effects to evade attacks, but variability is expected in those result
 In 2023, the Chief Digital and AI Office's Test and Evaluation Directorate (CDAO T\&E)
 requested that TwoSix adapt the Armory application to the Joint AI Test Infrastructure
 Capability (JATIC), a suite of interoperable software tools for comprehensive AI model
-T\&E. Some hallmarks of the JATIC programme is that contributed tools provide utility to
-the broadest possible ML evaluation community. To this end TwoSix has converted Armory
-to a pure Python library. In the process, we have shed mechanisms such as the docker
+T\&E. A hallmark of the JATIC program is that contributed tools provide utility to the
+broadest possible ML evaluation community. To this end TwoSix has converted Armory to a
+pure Python library. In the process, we have shed mechanisms such as the docker
 dependency which was an unneeded hurdle for Armory users not involved in GARD research.
-We've also transformed the experiment description from a JSON datum to Pythonic
+We have also transformed the experiment description from a JSON datum to Pythonic
 strongly-typed object constructors. The Armory library is soon to replace the
 GARD-Armory application on Github and armory-library will supplant armory-testbed as the
-pip-installable entry on PyPI. The Armory application will continue to be used and
-supported through the extent of the GARD program.
+pip-installable entry on PyPI. The GARD-Armory application will continue to be used and
+supported through the duration of the GARD program.
 
 % \section{Capabilities}
 
@@ -98,7 +98,7 @@ attacks, video processing, audio speech processing, and dataset poisoning. The A
 library is provided as a pure Python Library with primary dependencies on PyTorch
 and IBM ART. There is historic support for TensorFlow models and datasets within
 the library, but their use, as well as the non-image modalities
-is not a focus of the JATIC efforts.
+are not a focus of the JATIC efforts.
 
 A user of armory library, after importing the library itself, needs to call
 upon the jatic\_toolbox to obtain a model and dataset. The Armory API allows easy
@@ -107,12 +107,12 @@ are passed to Armory's evaluation engine. The evaluation engine first runs the
 model on the dataset to measure the unaltered "benign" performance, and then
 repeats that with adversarial perturbation. The construction of the experiment
 is tracked using mlFlow so that it can be repeated in complete detail, the resultant
-metrics are also gathered. The mlFlow databases can live on a server or will
-be captured in a small, local database if no server is specified.
+metrics are also gathered. The mlFlow databases can live on a server or
+be captured in a small, local file-based database (sqlite) if no server is specified.
 
 Armory has the ability to generate elaborate metrics for the model under test:
 adversarial perturbations such as lp distances, task performance such as categorical
-accuracy, statistical quantities like KL divergence and fairness statistics relevant to
+accuracy, statistical quantities like KL divergence, and fairness statistics relevant to
 poisoning and filtering attacks. Armory also provides extension mechanisms that allow a
 user to put software probes into the evaluation operation and store novel metrics to
 mlFlow.
