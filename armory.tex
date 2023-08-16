@@ -60,17 +60,18 @@ creators ("performers" typically academic / industry collaborations) against ind
 evaluators charged with evading those defenses. As these evaluation competitions
 repeated over the course of the research project, performers got better at making models
 robust against attack and the evaluators improved their tools for defeating those
-defenses. The collective experience has been encoded into Armory and ART.
+defenses. The collective experience has been encoded into Armory and IBM's Adversarial
+Robustness Toolbox (ART).
 
 As a mechanism to assist GARD evaluators, the Armory application was created by TwoSix
 Technologies in close collaboration with IBM and MITRE. It provided a number of features
 that were helpful to the GARD research program: A curated collection of models, and
 datasets well known to the ML community and used because they were well characterized.
-Using IBM's Adversarial Robustness Toolbox (ART) Armory first measures the model
-performance on the unperturbed inputs and then with adversarial perturbations computed
-and applied. The Armory application used Docker and conda to ease environment
-replication between performers and evaluators. Armory was released as open-source via
-Github and the Python Package Index (PyPI) since its inception.
+Armory first measures the model performance on the unperturbed inputs and then with
+adversarial perturbations computed and applied. The Armory application used Docker and
+conda to ease environment replication between performers and evaluators. Armory was
+released as open-source via Github and the Python Package Index (PyPI) since its
+inception.
 
 A key capability of Armory is allowing for determinate experiment replication so
 that the performers can fully specify their defense and its exercise in code such that
@@ -111,11 +112,11 @@ metrics are also gathered. The mlFlow databases can live on a server or
 be captured in a small, local file-based database (sqlite) if no server is specified.
 
 Armory has the ability to generate elaborate metrics for the model under test:
-adversarial perturbations such as lp distances, task performance such as categorical
-accuracy, statistical quantities like KL divergence, and fairness statistics relevant to
-poisoning and filtering attacks. Armory also provides extension mechanisms that allow a
-user to put software probes into the evaluation operation and store novel metrics to
-mlFlow.
+adversarial perturbations such as $L^P$ distances, task performance such as categorical
+accuracy, statistical quantities like Kullback-Leibler (KL) divergence, and fairness
+statistics relevant to poisoning and filtering attacks. Armory also provides extension
+mechanisms that allow a user to put software probes into the evaluation operation and
+store novel metrics to mlFlow.
 
 With the JATIC effort we have opened armory-library to arbitrarily large models
 and datasets. Although there is no fundamental limitation that armory imposes,
